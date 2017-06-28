@@ -60,6 +60,62 @@
           </div>
         </li>
       <% end %>
+
+      <li class="list-group-item">
+        <form action="/create_menu_item" method="post">
+      <!-- Hidden input for authenticity token to protect from forgery -->
+      <input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>">
+
+      <!-- Label and input for dishes_id -->
+      <div class="form-group">
+        <label for="dishes_id" class="control-label">
+          Dishes
+        </label>
+
+        <%= select_tag(:dishes_id, options_from_collection_for_select(Dish.all, :id, :name_of_dishes), :class => "form-control") %>
+      </div>
+
+      <!-- Label and input for venues_id -->
+      <div class="form-group">
+        <label for="venues_id" class="control-label">
+          Venues
+        </label>
+
+        <%= select_tag(:venues_id, options_from_collection_for_select(Venue.all, :id, :name), :class => "form-control") %>
+      </div>
+
+      <!-- Label and input for favorites_id -->
+      <div class="form-group">
+        <label for="favorites_id" class="control-label">
+          Favorites
+        </label>
+
+        <input type="text" id="favorites_id" name="favorites_id" placeholder="Favorites" class="form-control" value="">
+      </div>
+
+      <!-- Label and input for name -->
+      <div class="form-group">
+        <label for="name" class="control-label">
+          Name
+        </label>
+
+        <input type="text" id="name" name="name" placeholder="Name" class="form-control" value="">
+      </div>
+
+      <!-- Label and input for calories -->
+      <div class="form-group">
+        <label for="calories" class="control-label">
+          Calories
+        </label>
+
+        <input type="text" id="calories" name="calories" placeholder="Calories" class="form-control" value="">
+      </div>
+
+      <button class="btn btn-block btn-success">
+        Create Menu Item
+      </button>
+    </form>
+      </li>
     </ul>
   </div>
 </div>

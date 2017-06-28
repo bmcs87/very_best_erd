@@ -54,6 +54,53 @@
           </div>
         </li>
       <% end %>
+
+      <li class="list-group-item">
+        <form action="/create_venue" method="post">
+      <!-- Hidden input for authenticity token to protect from forgery -->
+      <input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>">
+
+      <!-- Label and input for name -->
+      <div class="form-group">
+        <label for="name" class="control-label">
+          Name
+        </label>
+
+        <input type="text" id="name" name="name" placeholder="Name" class="form-control" value="">
+      </div>
+
+      <!-- Label and input for neighborhoods_id -->
+      <div class="form-group">
+        <label for="neighborhoods_id" class="control-label">
+          Neighborhoods
+        </label>
+
+        <%= select_tag(:neighborhoods_id, options_from_collection_for_select(Neighborhood.all, :id, :name_of_neighborhood), :class => "form-control") %>
+      </div>
+
+      <!-- Label and input for address -->
+      <div class="form-group">
+        <label for="address" class="control-label">
+          Address
+        </label>
+
+        <input type="text" id="address" name="address" placeholder="Address" class="form-control" value="">
+      </div>
+
+      <!-- Label and input for cuisines_id -->
+      <div class="form-group">
+        <label for="cuisines_id" class="control-label">
+          Cuisines
+        </label>
+
+        <%= select_tag(:cuisines_id, options_from_collection_for_select(Cuisine.all, :id, :type_of_cuisine), :class => "form-control") %>
+      </div>
+
+      <button class="btn btn-block btn-success">
+        Create Venue
+      </button>
+    </form>
+      </li>
     </ul>
   </div>
 </div>
