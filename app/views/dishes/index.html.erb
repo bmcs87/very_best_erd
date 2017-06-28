@@ -19,7 +19,7 @@
       <tr>
         <td><%= dish.name_of_dishes %></td>
         <td><%= dish.cuisine.type_of_cuisine %></td>
-        <td><%= dish.favorites_id %></td>
+        <td><%= dish.favorites.created_at %></td>
         <td>
           <a href="/dishes/<%= dish.id %>" class="btn btn-primary">Show</a>
           <a href="/dishes/<%= dish.id %>/edit" class="btn btn-warning">Edit</a>
