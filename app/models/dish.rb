@@ -12,6 +12,10 @@ class Dish < ApplicationRecord
 
   # Indirect associations
 
+  has_many   :venues,
+             :through => :menu_items,
+             :source => :venues
+
   # Validations
 
 end
