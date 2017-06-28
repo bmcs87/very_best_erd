@@ -9,13 +9,25 @@
       <dd><%= @venue.name %></dd>
 
       <dt>Neighborhoods</dt>
-      <dd><%= @venue.neighborhoods_id %></dd>
+      <dd>
+        <% if @venue.neighborhoods.present? %>
+          <a href="/neighborhoods/<%= @venue.neighborhoods_id %>">
+            <%= @venue.neighborhoods.name_of_neighborhood %>
+          </a>
+        <% end %>
+      </dd>
 
       <dt>Address</dt>
       <dd><%= @venue.address %></dd>
 
       <dt>Cuisines</dt>
-      <dd><%= @venue.cuisines_id %></dd>
+      <dd>
+        <% if @venue.cuisines.present? %>
+          <a href="/cuisines/<%= @venue.cuisines_id %>">
+            <%= @venue.cuisines.type_of_cuisine %>
+          </a>
+        <% end %>
+      </dd>
 
     </dl>
 
