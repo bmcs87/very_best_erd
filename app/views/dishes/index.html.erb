@@ -18,7 +18,7 @@
       <% @dishes.each do |dish| %>
       <tr>
         <td><%= dish.name_of_dishes %></td>
-        <td><%= dish.cuisine_id %></td>
+        <td><%= dish.cuisine.type_of_cuisine %></td>
         <td><%= dish.favorites_id %></td>
         <td>
           <a href="/dishes/<%= dish.id %>" class="btn btn-primary">Show</a>
