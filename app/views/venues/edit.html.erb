@@ -51,7 +51,7 @@
           Cuisines
         </label>
 
-        <input type="text" id="cuisines_id" name="cuisines_id" placeholder="Cuisines" class="form-control" value="<%= @venue.cuisines_id %>">
+        <%= select_tag(:cuisines_id, options_from_collection_for_select(Cuisine.all, :id, :type_of_cuisine, @venue.cuisines_id), :class => "form-control") %>
       </div>
 
       <button class="btn btn-warning">
